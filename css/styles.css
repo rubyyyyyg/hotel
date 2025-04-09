@@ -380,7 +380,7 @@ nav ul li a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 nav li.active a {
-  color: #5E4D17;
+  color: #4a3d12;
 }
 
 .moveOver #hamburgerBtn::before {
@@ -402,7 +402,7 @@ main h1 {
   font-weight: 500;
   padding: 1rem 10px 0.5rem 10px;
   font-size: 1.9rem;
-  color: #5E4D17;
+  color: #4a3d12;
   font-weight: 300;
 }
 main p {
