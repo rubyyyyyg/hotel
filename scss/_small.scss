@@ -17,6 +17,7 @@ body {
     font-family: $defaultFont;
     font-weight: $lightWeight;
     min-width: 320px;
+    
 }
 
 
@@ -24,7 +25,7 @@ body {
 #headerWrapper {border-bottom: 1px solid $greyColor;}
 header {
     display: grid;
-    grid-template-columns: 50px auto;
+    grid-template-columns: 50px auto 44px;
     column-gap: $gutter;
     align-items: center; //vertically
     padding: .5rem $gutter;
@@ -32,18 +33,68 @@ header {
         font-size: 1.6rem;
         font-weight: $lightWeight;
         color: $primaryColor;
+        font-family: "Cinzel Decorative", serif;
+        font-weight: 400;
     }
 } // end header
 
 
 /* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+#hamburgerBtn {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #444;
+    &:before {
+        content: '\2630';
+    }
+}
 
+nav {
+    background-color: #f7f7f7;
+    width: 180px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    ul li a {
+        display: block;
+        padding: .9rem .5rem;
+        text-align: right;
+        border-bottom: 1px rgba(0,0,0,.25) solid;
+        text-decoration: none;
+        color: $primaryColor;
+    }
+    ul li a:hover {
+        background-color: rgba(0,0,0,.1);
+    }
+    li.active a {
+        color: $secondaryColor;
+    }
+} //end of nav
 
+.moveOver #hamburgerBtn::before {
+    content: "\2715";
+}
 
+.moveOver>.content {
+    transform: translate(-180px);
+    transition: transform 500ms ease;
+}
 
-
-
-
+#pageWrapper {
+    position: relative;
+    overflow-x: hidden;
+}
 
 
 
@@ -54,8 +105,9 @@ header {
 /* --------------------------- MAIN --------------------------- */
 main {
     h1 {
+        font-weight: $normalWeight;
         padding: 1rem $gutter.5rem $gutter;
-        font-size: 1.5rem;
+        font-size: 1.9rem;
         color: $secondaryColor;
         font-weight: $lightWeight
     }
@@ -64,9 +116,47 @@ main {
         color: #333;
         line-height: $leading;
     }
+    h2 {
+        font-weight: $lightWeight;
+    }
+
+   
 }// end main
 
+#cards {
+    section {
+        display: grid;
+        grid-template-areas: 
+        "name" 
+        "photo" 
+        "address" 
+        "phone";
+        padding: 10px;
+        border: 1px solid $primaryColor;
+        border-radius: 10px;
+        margin: 5px;
+        background-color: white;
 
+    }
+    img {
+        grid-area: photo;
+        width: 100%;
+        height: auto;
+    }
+    h2 {
+        grid-area: name;
+    }
+    address {
+        grid-area: address;
+        margin-left: 2px;
+    }
+    a {
+        grid-area: phone;
+        color: black;
+        text-decoration: none;
+        margin-left: 2px;
+    }
+} //end of cards
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
